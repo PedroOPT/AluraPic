@@ -7,6 +7,11 @@
         <div class="col-lg-4 p-4">
             <small>
                 <p class="text-left break-word">{{photo.description}}</p>
+                <div class="text-left mb-4">
+                    <i showIfLogged (click)="like(photo)" class="fa fa-heart-o fa-2x mr-2 pull-left"> {{ photo.likes }} </i>
+                    <i class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{ photo.comments }}
+                    <i photoOwnerOnly [ownedPhoto]="photo" class="fa fa-trash-o fa-2x pull-right" (click)="remove()"></i>
+                </div>
                 <hr>
             </small>
 
@@ -18,3 +23,6 @@
         </div>
     </div>
 </div>
+
+<!-- Permite que o template de um componente realize a inscrição de um observable fornecendo o valor emitido diretamente no template.
+Observables associados ao pipe async são liberados quando o componente cujo o template faz parte é destruído, livrando o desenvolvedor desta responsabilidade. -->

@@ -1,0 +1,10 @@
+<div [ngClass]="{ 'active-menu': isShown }">
+    <div class="menu-bar">
+        <i tabindex="0" (keyup.space)="toggle()" (click)="toggle()" class="fa fa-window-close"></i>
+        <ng-content></ng-content>
+    </div>
+    <div class="overlay" (click)="toggle()"></div>
+</div>
+
+<!-- <div [ngClass]="{ 'x-y': xy }"></div>
+A classe x-y será aplicada no template apenas se a propriedade xy do componente no qual o template faz parte for true. -->

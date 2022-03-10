@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlatformdetectorService } from 'src/app/core/platform-detector/platform-detector.service';
@@ -12,9 +13,10 @@ export class SignInComponent implements OnInit{
     loginForm: FormGroup;
     @ViewChild('userNameInput') usarNameInput: ElementRef<HTMLInputElement>;
 
-    constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private platformDetectorService: PlatformdetectorService){ }
+    constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private platformDetectorService: PlatformdetectorService, private titleService: Title){ }
 
     ngOnInit(): void {
+        //this.titleService.setTitle('Login') //aletra o titulo da página (component)
         this.loginForm = this.formBuilder.group({
             userName: ['',Validators.required],
             password: ['',Validators.required]

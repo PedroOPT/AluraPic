@@ -29,7 +29,7 @@ export class PhotoDetailsComponent implements OnInit{
         this.photoService.removePhoto(this.photoId)
         .subscribe(()=>{
             this.alertService.success("Photo removed", true);
-            this.router.navigate(['/user', this.userService.getUserName()]);
+            this.router.navigate(['/user', this.userService.getUserName()],{ replaceUrl: true });
         },
         err => {
             this.alertService.warning('Could no delete the photo', true)
@@ -43,5 +43,7 @@ export class PhotoDetailsComponent implements OnInit{
             }
         })
     }
+
+    //replaceUrl em navigate é para exluir a rota do histórico de navegação
 
 }
